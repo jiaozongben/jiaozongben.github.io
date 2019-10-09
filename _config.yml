@@ -17,7 +17,7 @@ favicon: favicon.ico
 
 repository: jiaozongben/jiaozongben.github.io
 github_url: https://github.com/jiaozongben
-url: https://jiaozongben.github.io/
+url: http://jiaozongben.github.io/
 enforce_ssl: jiaozongben.github.io
 
 ## Gem
@@ -54,6 +54,7 @@ paginate_path: 'page:num'
 
 # Navigation. top menu list
 menus:
+
   -
     href: /
     label: Home

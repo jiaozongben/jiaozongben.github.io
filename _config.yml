@@ -1,0 +1,180 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title:  上善若水
+subtitle: 千里之行，始于足下。
+name: 上善若水
+email: jiaozongben@gmail.com
+description: 本站是矫宗本的技术分享博客。内容涵盖云计算、大数据 等相关的研究与知识分享。
+keywords: jiaozongben,kubernetes,docker,Spring Boot,Spring Cloud,Docker,大数据,开源,Geek
+encoding: "utf-8"
+favicon: favicon.ico 
+
+repository: jiaozongben/jiaozongben.github.io
+github_url: https://github.com/jiaozongben
+url: https://jiaozongben.github.io/
+enforce_ssl: jiaozongben.github.io
+
+## Gem
+plugins:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
+kramdown:
+  input: GFM
+  enable_coderay: true
+  syntax_highlighter: rouge
+
+syntax_highlighter_opts:
+   coderay_line_numbers:  nil
+
+# Pagination
+paginate: 12
+paginate_path: 'page:num'
+
+# Navigation. top menu list
+menus:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /cloud-compute.html
+    label: 云计算
+    target: _self
+
+  -
+    href: /big-data.html
+    label: 大数据
+    target: _self
+
+  -
+    href: /archives.html
+    label: Archives
+    target: _self
+
+  -
+    href: /about.html
+    label: About
+    target: _self
+ 
+
+
+
+# Navigation. main menu list
+navs:
+
+  -
+    href: /
+    label: Home
+
+  -
+    href: /cloud-compute.html
+    label: 云计算
+    target: _self
+
+  -
+    href: /big-data.html
+    label: 大数据
+    target: _self
+
+  -
+    href: /archives.html
+    label: Archives
+    target: _self
+
+  -
+    href: /about.html
+    label: About
+    target: _self
+
+
+# labels. my blog key words
+labels:
+
+  -
+    href: /docker.html
+    label: Docker
+    target: _blank
+
+  -
+    href: /geektime.html
+    label: 极客
+    target: _blank
+
+
+# selected articles
+classes:
+
+  -
+    href: /life.html
+    name: 我的故事
+    describe: 生活就是故事，故事就是生活
+
+
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# Sidebar to show popular repo
+side_bar_repo_limit: 6 # Number of repos to show
+
+# Google Analytics
+# analytics :
+# provider : google
+#   google :
+#     tracking_id : ''  # ex. UA-72165600-X
+
+
+# For about.html. Fell free to create your own!
+skill_software_keywords: [kubernetes, ElasticSearch, Spring Cloud,Oracle, Docker]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, Boostrap]
+
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+# comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+# disqus:
+#     username: ityouknow
+# https://imsun.net/posts/gitment-introduction/
+# gitment:
+#     owner: ityouknow
+#     repo: blog-comments
+#     oauth:
+#         client_id: 61bfc53d957e74e78f8f
+#         client_secret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
+# https://github.com/gitalk/gitalk#install
+# gitalk:
+#     owner: ityouknow
+#     repo: blog-comments
+#     clientID: 61bfc53d957e74e78f8f
+#     clientSecret: 31c61e66cdcc9ada8db2267ee779d0bdafac434c
+# 在使用其它评论组件时可点击显示 Disqus
+# lazy_load_disqus : true

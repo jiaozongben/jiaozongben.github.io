@@ -9,6 +9,9 @@ excerpt: k8s
 
 # Ceph快速部署
 
+* 目录  
+{:toc #markdown-toc}
+
 ```
 ceph-deploy purge docker01 docker02 docker03 docker04
 ceph-deploy purgedata docker01 docker02 docker03 docker04

@@ -11,6 +11,9 @@ excerpt: k8s
 
 参考官方链接<https://www.rancher.cn/docs/rancher/v2.x/cn/installation/air-gap-installation/ha/>
 
+* 目录  
+{:toc #markdown-toc}
+
 ## 搭建rancher server
 
 请先根据官方链接配置好所有 前置条件。

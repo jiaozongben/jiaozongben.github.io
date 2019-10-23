@@ -9,6 +9,9 @@ excerpt: Docker
 
 # Docker快速入门
 
+* 目录  
+{:toc #markdown-toc}
+
 ## 介绍
 
 Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中,然后发布到任何流行的[Linux](https://baike.baidu.com/item/Linux)机器上,也可以实现虚拟化,容器是完全使用沙箱机制,相互之间不会有任何接口，而且容器性能开销极低。
@@ -103,6 +106,20 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ... ...
 ```
+
+### 镜像构建样例
+
+<https://github.com/luksa/kubernetes-in-action/tree/master/Chapter02/kubia>
+
+下载下来后，
+
+```
+docker build -t kubia .
+
+docker run --name kubia -p 8080:8080 -d kubia
+```
+
+
 
 ## Docker常用命令
 

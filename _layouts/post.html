@@ -8,7 +8,7 @@ css: ['sidebar-post-nav.css']
     <div class="row">
 
         {% if page.no-post-nav %}
-        <div class="col-md-12 markdown-body">
+        <div class="col-md-9 markdown-body">
 
             {{ content }}
 
@@ -18,6 +18,9 @@ css: ['sidebar-post-nav.css']
            <div class="comment">
              {% include comments.html %}
            </div>
+
+        </div>
+        <div class="col-md-3 sidebar_catelog markdown-body" style="position:sticky;top:100px">
 
         </div>
         {% else %}

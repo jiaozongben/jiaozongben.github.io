@@ -11,8 +11,6 @@ excerpt: Docker
 
 
 
-* 目录  
-{:toc #markdown-toc}
 ## 前提条件
 
 > Docker 运行在 CentOS 7 上，要求系统为64位、系统内核版本为 3.10 以上。

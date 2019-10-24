@@ -11,8 +11,7 @@ excerpt: k8s
 
 参考官方链接<https://www.rancher.cn/docs/rancher/v2.x/cn/installation/air-gap-installation/ha/>
 
-* 目录  
-{:toc #markdown-toc}
+
 
 ## 搭建rancher server
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Ceph安装
+title:  容器化(04):分布式存储Ceph部署
 no-post-nav: true
 category: docker
 tags: [kubernetes,k8s,rancher,ceph]

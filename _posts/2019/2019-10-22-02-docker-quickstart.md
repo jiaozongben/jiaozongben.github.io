@@ -239,6 +239,205 @@ unauthorized: authentication required
 [root@xxx ~]# docker push jiaozongben/flask:v1
 ```
 
+## docker-compose
+
+### 介绍
+
+docker-compose 在**单机**中通过一个配置文件来管理多个Docker容器，在配置文件中，所有的容器通过services来定义，然后使用docker-compose脚本来启动，停止和重启应用，和应用中的服务以及所有依赖服务的容器，非常适合组合使用多个容器进行开发的场景。
+
+### 安装
+
+```
+yum install docker-compose 
+```
+
+### 配置 dockers-compose.yml文件
+
+```yml
+version: '3'
+services:
+ # nginx 服务
+ nginx:
+  # 推荐使用官方镜像
+  image: nginx:latest
+  # 映射端口，把容器端口映射到宿主机对外接口，格式：对外端口:容器端口
+  ports:
+  - "80:80"
+  - "443:443"
+  # 所依赖的服务，php会先启动
+  depends_on:
+  - php
+
+ # php 服务
+ php:
+  # 官方镜像
+  image: php:7-fpm
+```
+
+docker-compose.yml是一个[YAML](https://baike.baidu.com/item/YAML/1067697?fr=aladdin)文件，语法很简单。
+
+我们把上面的文件分解一下。在父级，我们定义服务的名称：`nginx`和`php`，`nginx`服务使用镜像`nginx:latest`，`php`服务使用镜像`php:7-fpm`。`ports`参数可以定义服务的端口映射。详细信息，请看注释。
+
+### docker-compose启动多个容器
+
+先确保docker服务已经运行：
+
+```shell
+$ sudo service docker start
+```
+
+运行docker-compose，切换到docker-compose.yml所在的目录执行
+
+```shell
+$ sudo docker-compose up -d
+```
+
+会自动下载nginx与php镜像，然后运行这两个容器。
+
+### 确认容器运行
+
+通过`docker ps`查看nginx与php容器是否运行：
+
+```shell
+[root@qikegu deploly]# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+042328b082a4        nginx:latest        "nginx -g 'daemon of…"   33 seconds ago      Up 31 seconds       0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp   deploly_nginx_1
+9d0b67f869ee        php:7-fpm           "docker-php-entrypoi…"   34 seconds ago      Up 33 seconds       9000/tcp                                   deploly_php_1
+```
+
+### 容器停止
+
+```
+docker-compose down 
+```
+
+## docker-swarm
+
+### 介绍
+
+Docker Swarm是Docker 容器**集群**服务，是 Docker 官方对容器云生态进行支持的核心方案，使用它，用户可以将多个 Docker 主机封装为单个大型的虚拟 Docker 主机，快速打造一套容器云平台。
+
+### 构建集群
+
+*// 这是集群初始化命令*
+
+```
+docker swarm init
+```
+
+### 集群部署应用
+
+部署kafka高可用集群案例
+
+```
+/ 现在我们来运行它 你必须给你的应用程序一个名字。在这里，它设置为 kafka：
+$ docker stack deploy -c docker-compose.yml kafka
+```
+
+#### 每个节点打标签
+
+这里的worker1替换成你的节点名字
+
+```bash
+docker node ls
+```
+
+```bash
+docker node update --label-add role=kafka worker1
+```
+
+#### docker-compose.yml
+
+```
+version: '3.2'
+services:
+
+  zoo1:
+    image: zookeeper:3.4
+    restart: always
+    hostname: zoo1
+    deploy:
+      replicas: 1
+      placement:
+        constraints:                      # 添加条件约束
+         - node.labels.role==kafka
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+
+  zoo2:
+    image: zookeeper:3.4
+    restart: always
+    deploy:
+      replicas: 1
+      placement:
+        constraints:                      # 添加条件约束
+         - node.labels.role==kafka
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    deploy:
+      replicas: 1
+      placement:
+        constraints:                      # 添加条件约束
+         - node.labels.role==kafka
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888
+
+  zoo3:
+    image: zookeeper:3.4
+    restart: always
+    deploy:
+      replicas: 1
+      placement:
+        constraints:                      # 添加条件约束
+         - node.labels.role==kafka
+    hostname: zoo3
+    ports:
+      - 2183:2181
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=0.0.0.0:2888:3888
+
+  kafka:
+    image: wurstmeister/kafka:1.1.0
+    deploy:
+      replicas: 3
+      placement:
+        constraints:                      # 添加条件约束
+         - node.labels.role==kafka  
+    ports:
+      - target: 9094
+        published: 9094
+        protocol: tcp
+        mode: host  
+    environment:
+      HOSTNAME_COMMAND: "docker info | grep ^Name: | cut -d' ' -f 2 "
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181,zoo2:2181,zoo3:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://_{HOSTNAME_COMMAND}:9094
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_LOG_RETENTION_BYTES: -1
+      KAFKA_LOG_RETENTION_DAYS: 3 
+    volumes:
+      - /data/kafka:/kafka     
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager:1.3.0.4
+    ports:
+    - "9000:9000"
+    environment:
+    - ZK_HOSTS=zoo1:2181,zoo2:2181,zoo3:2181     
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock            
+```
+
 
 
 ## Docker常用命令

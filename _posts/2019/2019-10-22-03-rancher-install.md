@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Rancher2.2安装
+title:  容器化(03):容器云Rancher2.2安装部署
 no-post-nav: true
 category: docker
 tags: [kubernetes,k8s,rancher]
@@ -240,7 +240,7 @@ dns:
 
 ### RKE构建集群
 
-这个文件要保留好，后面集群扩容还是修改rancher-cluster.yml然后执行和这个命令
+这个文件要保留好，后面集群扩容还是要修改rancher-cluster.yml然后执行这个命令
 
 ```
 rke up --config ./rancher-cluster.yml  # 构建rancher容器云集群

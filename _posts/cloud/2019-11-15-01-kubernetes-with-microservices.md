@@ -1,4 +1,13 @@
-# 容器云平台 -集成手册
+---
+title: 容器云平台-微服务集成手册
+layout: post
+no-post-nav: true
+category: cloud
+tags: [kubernetes,rancher,pipeline,docker]
+excerpt: kubernetes
+---
+
+
 
 完成三个文件编写(Dockerfile、.rancher-pipeline.yml、deployment.yaml)、并验证
 
@@ -24,6 +33,8 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 请注册用户名密码
 
 ## 02.构建流水线
+
+**项目master权限才能配置 流水线，devlope权限只能执行。**
 
 流水线配置，将.rancher-pipeline.yml放在项目根目录
 

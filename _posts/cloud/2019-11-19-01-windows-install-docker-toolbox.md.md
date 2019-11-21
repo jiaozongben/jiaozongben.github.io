@@ -1,5 +1,5 @@
 ---
-title: Win XP 安装 docker toolbox
+title: Win 7 安装 docker toolbox
 layout: post
 no-post-nav: true
 category: cloud
@@ -20,6 +20,8 @@ excerpt: docker
 -  https://github.com/boot2docker/boot2docker/releases/download/v18.09.3/boot2docker.iso
 
 ### 安装docker
+
+![img](http://jiaozongben.github.io/assets/images/cloud/admin_install_dockertoolbox.png)
 
 **右键使用管理员权限**安装安装DockerToolbox
 

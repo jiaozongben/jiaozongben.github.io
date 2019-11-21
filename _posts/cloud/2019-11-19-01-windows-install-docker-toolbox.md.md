@@ -112,3 +112,9 @@ deployment.yaml
 account 全局替换成 自己服务的名字
 
 2222 应用端口全局替换称自己的端口
+
+env就是绑定的环境变量
+
+从容器云平台配置中心 eureka-cm 中取值，挂载到应用的环境变量上，每套环境都配一样的域名，会解析到对应的eureka ip
+
+![](httpS://jiaozongben.github.io/assets/images/cloud/eureka_cm.png)

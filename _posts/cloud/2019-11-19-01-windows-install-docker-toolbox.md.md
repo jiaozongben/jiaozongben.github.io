@@ -103,18 +103,49 @@ eureka 注册中心地址改为 ,绑定环境变量 DEFAULT_ZONE导入地址
 
 ## 部署服务
 
+### 容器编排
+
 deployment.yaml
 
 ![](httpS://jiaozongben.github.io/assets/images/cloud/k8s_deployment.png)
 
-这里image换成自己的应用镜像
+image： 换成自己的应用镜像
 
 account 全局替换成 自己服务的名字
 
-2222 应用端口全局替换称自己的端口
+port： 2222 应用端口全局替换成应用运行的端口
 
-env就是绑定的环境变量
+环境变量： env就是绑定的环境变量
 
 从容器云平台配置中心 eureka-cm 中取值，挂载到应用的环境变量上，每套环境都配一样的域名，会解析到对应的eureka ip
 
-![](httpS://jiaozongben.github.io/assets/images/cloud/eureka_cm.png)
+查看容器云平台配置的映射
+
+![](http://jiaozongben.github.io/assets/images/cloud/eureka_cm.png)
+
+### 登陆加密文件配置
+
+#### kube配置文件
+
+kubernetes 加密访问 config 文件 放到home目录的.kube 文件夹下面，没有目录的话cmd 手动mkdir 创建目录
+
+![](http://jiaozongben.github.io/assets/images/cloud/kube_config.png)
+
+#### 连接工具
+
+kubectl、kubefwd 放到环境变量里面
+
+![](http://jiaozongben.github.io/assets/images/cloud/k8s_env_tools.png)
+
+### 部署微服务到云平台
+
+在镜像推送到镜像仓库后，
+
+就通过 命令行 
+
+```
+kubectl -f ${部署文件} -n ${namespace}
+```
+
+![](http://jiaozongben.github.io/assets/images/cloud/kubectl_deploy.png)
+

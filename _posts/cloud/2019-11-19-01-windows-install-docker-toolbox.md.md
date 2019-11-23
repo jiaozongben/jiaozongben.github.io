@@ -17,13 +17,13 @@ excerpt: docker
 ### 准备安装包
 
 - [DockerToolbox-18.09.3.exe](https://github.com/docker/toolbox/releases/download/v18.09.3/DockerToolbox-18.09.3.exe)
--  https://github.com/boot2docker/boot2docker/releases/download/v18.09.3/boot2docker.iso
+- [boot2docker.iso](https://github.com/boot2docker/boot2docker/releases/download/v18.09.3/boot2docker.iso)
 
 ### 安装docker
 
 ![img](http://jiaozongben.github.io/assets/images/cloud/admin_install_dockertoolbox.png)
 
-**右键使用管理员权限**安装安装DockerToolbox
+**右键使用管理员权限**安装DockerToolbox
 
 boot2docker.iso放置到cache下
 

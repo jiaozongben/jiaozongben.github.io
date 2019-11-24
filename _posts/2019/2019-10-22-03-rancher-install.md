@@ -7,9 +7,9 @@ tags: [kubernetes,k8s,rancher]
 excerpt: k8s
 ---
 
-# Rancher2.2搭建集群&pipeline部署项目
+# Rancher2.3.2 RKE HA离线搭建集群
 
-参考官方链接<https://www.rancher.cn/docs/rancher/v2.x/cn/installation/air-gap-installation/ha/>
+官方链接 <https://www.rancher.cn/docs/rancher/v2.x/cn/installation/air-gap-installation/ha/>
 
 
 
@@ -74,9 +74,7 @@ EOF
 | 10.164.204.48  | master & node |
 | 10.164.204.49  | master & node |
 
-我搭设的是RKE HA离线模式集群。
-
-### 配置域名
+### 配置前置nginx
 
 前面的nginx配置域名请参考官网
 
@@ -96,7 +94,7 @@ dig @10.164.204.153  haiercloud.com
 
 
 
-### 配置文件
+### rancher配置文件
 
 rancher-cluster.yml
 
@@ -295,6 +293,8 @@ $ kubectl   -n kube-system \
 
 在离线环境中安装有kubectl的主机上安装Helm客户端，参考[安装Helm客户端](https://www.rancher.cn/docs/rancher/v2.x/cn/installation/ha-install/helm-rancher/tcp-l4/helm-install/#%E4%BA%8C-%E5%AE%89%E8%A3%85helm%E5%AE%A2%E6%88%B7%E7%AB%AF)了解Helm客户端安装。
 
+注意这里helm_version报错就直接helm_version=v2.14.3
+
 ```bash
 $ helm_version=`helm version |grep Client | awk -F""\" '{print $2}'`    
 $ helm init   --skip-refresh \
@@ -309,9 +309,10 @@ $ kubectl get all -n kube-system
 
 ```
 # 添加`Rancher Charts`仓库
-# helm repo add rancher-stable https://releases.rancher.com/server-charts/stable    
+$ helm repo add rancher-stable https://releases.rancher.com/server-charts/stable    
 # 指定安装的版本
-# helm fetch rancher-stable/rancher --version v2.2.3
+$ helm fetch rancher-stable/rancher --version v2.3.2
+$ tar zxvf rancher-2.3.2.tgz
 ```
 
 
@@ -342,7 +343,9 @@ $ helm   install ./rancher \
     --set privateCA=true       
 ```
 
-### 为Cluster Pod添加主机别名
+到这里要等3分钟左右，服务部署完成后，给服务patch hosts，cattle 的服务是登陆rancher 后才会创建哦
+
+### 为Cluster Pod添加主机别名hosts解析
 
 ```
 $ kubectl  -n cattle-system \
@@ -382,6 +385,26 @@ patch deployments cattle-cluster-agent --patch '{
         }
     }
 }'   
+
+
+$ kubectl  -n cattle-system \
+patch daemonsets cattle-node-agent --patch '{
+    "spec": {
+        "template": {
+            "spec": {
+                "hostAliases": [
+                    {
+                        "hostnames":
+                        [
+                            "www.rancher.haiercloud.com"
+                        ],
+                            "ip": "10.164.194.120"
+                    }
+                ]
+            }
+        }
+    }
+}'
 ```
 
 

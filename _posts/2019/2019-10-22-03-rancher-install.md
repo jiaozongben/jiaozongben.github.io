@@ -411,6 +411,8 @@ patch daemonsets cattle-node-agent --patch '{
 
 注：以上命令需要顺序依次执行。
 
+rancher启动好之后 在rancherpod 上面升级 环境变量，添加http\https代理，即可访问外网
+
 参考链接：
 
 rancher官网： <https://www.rancher.cn/docs/rancher/v2.x/cn/installation/air-gap-installation/ha/>

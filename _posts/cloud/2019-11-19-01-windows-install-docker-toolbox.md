@@ -25,7 +25,7 @@ excerpt: docker
 
 **右键使用管理员权限**安装DockerToolbox
 
-boot2docker.iso放置到cache下
+boot2docker.iso放置到cache下，**如果没有目录请手动创建**。
 
 ```
 C:\Users\User\.docker\machine\cache\boot2docker.iso
@@ -37,19 +37,33 @@ C:\Users\User\.docker\machine\cache\boot2docker.iso
 
 #### 创建带环境变量的虚拟机
 
-打开docker cmd命令行,创建带环境变量的虚拟机，-d 静默运行 --engine-insecure-registry 指定镜像仓库
-
-```shell
-docker-machine create -d virtualbox --engine-insecure-registry=10.164.204.195:18080  default
-```
-
-![](https://jiaozongben.github.io/assets/images/cloud/create_machine.png)
-
-稍等一会，这里就是安装完成了。
-
 启动docker，打开桌面docker quickstart
 
 ![](http://jiaozongben.github.io/assets/images/cloud/docker_quickstart.png)
+
+1.启动docker，打开桌面docker quickstart，等待就安装完成了。
+
+![](https://jiaozongben.github.io/assets/images/cloud/docker_machine-quickstart.png)
+
+2.打开git cmd命令行,进入到docker虚拟机修改http直连docker仓库
+
+
+
+```shell
+docker-machine ssh default
+sudo vi /var/lib/boot2docker/profile  ###修改文件
+--label provider=virtualbox
+--insecure-registry=10.164.204.195:18080  ###加入的一行
+sudo /etc/init.d/docker restart
+```
+
+
+
+![](https://jiaozongben.github.io/assets/images/cloud/docker_machineinsecure_registry.png)
+
+
+
+
 
 ![](https://jiaozongben.github.io/assets/images/cloud/docker_login.png)
 
@@ -72,22 +86,6 @@ docker login 10.164.204.195:18080
 输入用户名密码
 
 到这里docker本地环境安装完成。
-
-### idea 安装docker 插件
-
-idea plugin 下载docker 插件，没有的话去idea plugin中心下载docker
-
-![](https://jiaozongben.github.io/assets/images/cloud/idea_download_docker_plugin.png)
-
-![](https://jiaozongben.github.io/assets/images/cloud/idea_docker_service.png)
-
-![](https://jiaozongben.github.io/assets/images/cloud/idea_docker_plugin.png)
-
-显示connection successful就是配置好了
-
-
-
-
 
 ## 推送docker镜像
 

@@ -16,8 +16,8 @@ excerpt: docker
 
 ### 准备安装包
 
-- [DockerToolbox-18.09.3.exe](https://github.com/docker/toolbox/releases/download/v18.09.3/DockerToolbox-18.09.3.exe)
-- [boot2docker.iso](https://github.com/boot2docker/boot2docker/releases/download/v18.09.3/boot2docker.iso)
+- https://github.com/docker/toolbox/releases/download/v18.03.0-ce/DockerToolbox-18.03.0-ce.exe
+- https://github.com/boot2docker/boot2docker/releases/download/v18.09.3/boot2docker.iso
 
 ### 安装docker
 
@@ -35,19 +35,17 @@ C:\Users\User\.docker\machine\cache\boot2docker.iso
 
 
 
-#### 创建带环境变量的虚拟机
+#### 创建docker虚拟机
 
 启动docker，打开桌面docker quickstart
 
-![](http://jiaozongben.github.io/assets/images/cloud/docker_quickstart.png)
+![](https://jiaozongben.github.io/assets/images/cloud/docker_quickstart.png)
 
 1.启动docker，打开桌面docker quickstart，等待就安装完成了。
 
-![](https://jiaozongben.github.io/assets/images/cloud/docker_machine-quickstart.png)
+![](http://jiaozongben.github.io/assets/images/cloud/docker_machine-quickstart.png)
 
 2.打开git cmd命令行,进入到docker虚拟机修改http直连docker仓库
-
-
 
 ```shell
 docker-machine ssh default
@@ -57,35 +55,31 @@ sudo vi /var/lib/boot2docker/profile  ###修改文件
 sudo /etc/init.d/docker restart
 ```
 
+![](http://jiaozongben.github.io/assets/images/cloud/docker_machineinsecure_registry.png)
 
+这里配置好可信镜像仓库之后insecure-registry,登陆docker账户。
 
-![](https://jiaozongben.github.io/assets/images/cloud/docker_machineinsecure_registry.png)
+#### 注册docker账户
 
-
-
-
-
-![](https://jiaozongben.github.io/assets/images/cloud/docker_login.png)
-
-### 注册docker账户
-
-http://10.164.204.195:18080
+登陆： http://10.164.204.195:18080  
 
 ![](https://jiaozongben.github.io/assets/images/cloud/harbor_login.png)
 
-<https://jiaozongben.github.io/assets/images/cloud/harbor_login.png>
 
-#### 客户端登陆docker
 
-windows cmd登录docker账户
+### 本地登录docker账户
+
+只需要执行一次就可以关闭命令行
 
 ```shell
 docker login 10.164.204.195:18080
 ```
 
-输入用户名密码
+![](http://jiaozongben.github.io/assets/images/cloud/docker_login.png)
 
-到这里docker本地环境安装完成。
+
+
+
 
 ## 推送docker镜像
 

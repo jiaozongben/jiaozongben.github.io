@@ -2,7 +2,7 @@
   "api_url": "https://api.github.com",
   "archived": false,
   "baseurl": "/pages/jiaozongben/jiaozongben.github.io",
-  "build_revision": "06afa814e0caaeee79e48beb9ab47ba72f7a17a3",
+  "build_revision": "3479d2ab93b388a66f82a9b5a1d678c2c7fd95d1",
   "clone_url": "https://github.com/jiaozongben/jiaozongben.github.io.git",
   "contributors": [
     {
@@ -4340,8 +4340,8 @@
       "releases_url": "https://api.github.com/repos/jiaozongben/jiaozongben.github.io/releases{/id}",
       "deployments_url": "https://api.github.com/repos/jiaozongben/jiaozongben.github.io/deployments",
       "created_at": "2019-10-09 06:40:44 UTC",
-      "updated_at": "2020-07-11 11:53:59 UTC",
-      "pushed_at": "2020-07-11 11:53:56 UTC",
+      "updated_at": "2020-07-11 12:06:54 UTC",
+      "pushed_at": "2020-07-11 12:06:51 UTC",
       "git_url": "git://github.com/jiaozongben/jiaozongben.github.io.git",
       "ssh_url": "git@github.com:jiaozongben/jiaozongben.github.io.git",
       "clone_url": "https://github.com/jiaozongben/jiaozongben.github.io.git",

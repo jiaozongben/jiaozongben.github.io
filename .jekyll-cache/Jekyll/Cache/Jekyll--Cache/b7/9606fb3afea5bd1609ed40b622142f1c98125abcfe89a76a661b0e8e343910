@@ -1,8 +1,8 @@
-I"O1{"source"=>".", "destination"=>"./_site", "collections_dir"=>"", "cache_dir"=>".jekyll-cache", "plugins_dir"=>"_plugins", "layouts_dir"=>"_layouts", "data_dir"=>"_data", "includes_dir"=>"_includes", "collections"=>{"posts"=>{"output"=>true, "permalink"=>"/:categories/:year/:month/:day/:title:output_ext"}}, "safe"=>false, "include"=>[".htaccess"], "exclude"=>[".sass-cache", ".jekyll-cache", "gemfiles", "Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"], "keep_files"=>[".git", ".svn"], "encoding"=>"utf-8", "markdown_ext"=>"markdown,mkdown,mkdn,mkd,md", "strict_front_matter"=>false, "show_drafts"=>nil, "limit_posts"=>0, "future"=>false, "unpublished"=>false, "whitelist"=>[], "plugins"=>["jekyll-paginate", "jekyll-geo-pattern", "rouge", "kramdown", "jekyll-github-metadata"], "markdown"=>"kramdown", "highlighter"=>"rouge", "lsi"=>false, "excerpt_separator"=>"\n\n", "incremental"=>false, "detach"=>false, "port"=>"8081", "host"=>"127.0.0.1", "baseurl"=>nil, "show_dir_listing"=>false, "permalink"=>"date", "paginate_path"=>"page:num", "timezone"=>nil, "quiet"=>false, "verbose"=>false, "defaults"=>[], "liquid"=>{"error_mode"=>"warn", "strict_filters"=>false, "strict_variables"=>false}, "kramdown"=>{"auto_ids"=>true, "toc_levels"=>[1, 2, 3, 4, 5, 6], "entity_output"=>"as_char", "smart_quotes"=>"lsquo,rsquo,ldquo,rdquo", "input"=>"GFM", "hard_wrap"=>false, "guess_lang"=>true, "footnote_nr"=>1, "show_warnings"=>false, "enable_coderay"=>true, "syntax_highlighter"=>"rouge"}, "title"=>"矫宗本的博客", "subtitle"=>"千里之行，始于足下。", "name"=>"矫宗本的博客", "email"=>"jiaozongben@gmail.com", "description"=>"本站是矫宗本的技术分享博客。", "keywords"=>"Geek", "favicon"=>"favicon.ico", "repository"=>"jiaozongben/jiaozongben.github.io", "github_url"=>"https://github.com/jiaozongben", "url"=>"http://localhost:8081", "enforce_ssl"=>"jiaozongben.github.io", "syntax_highlighter_opts"=>{"coderay_line_numbers"=>"nil"}, "paginate"=>12, "menus"=>[{"href"=>"/", "label"=>"Home"}, {"href"=>"/archives.html", "label"=>"Archives", "target"=>"_self"}, {"href"=>"/about.html", "label"=>"About", "target"=>"_self"}], "navs"=>[{"href"=>"/", "label"=>"Home"}, {"href"=>"/archives.html", "label"=>"Archives", "target"=>"_self"}, {"href"=>"/about.html", "label"=>"About", "target"=>"_self"}], "subscribe_rss"=>"/feed.xml", "side_bar_repo_limit"=>3, "skill_software_keywords"=>[], "skill_web_keywords"=>[], "livereload"=>true, "livereload_port"=>35729, "serving"=>true, "watch"=>true, "github"=>{
+I"�1{"source"=>".", "destination"=>"./_site", "collections_dir"=>"", "cache_dir"=>".jekyll-cache", "plugins_dir"=>"_plugins", "layouts_dir"=>"_layouts", "data_dir"=>"_data", "includes_dir"=>"_includes", "collections"=>{"posts"=>{"output"=>true, "permalink"=>"/:categories/:year/:month/:day/:title:output_ext"}}, "safe"=>false, "include"=>[".htaccess"], "exclude"=>[".sass-cache", ".jekyll-cache", "gemfiles", "Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"], "keep_files"=>[".git", ".svn"], "encoding"=>"utf-8", "markdown_ext"=>"markdown,mkdown,mkdn,mkd,md", "strict_front_matter"=>false, "show_drafts"=>nil, "limit_posts"=>0, "future"=>false, "unpublished"=>false, "whitelist"=>[], "plugins"=>["jekyll-paginate", "jekyll-geo-pattern", "rouge", "kramdown", "jekyll-github-metadata"], "markdown"=>"kramdown", "highlighter"=>"rouge", "lsi"=>false, "excerpt_separator"=>"\n\n", "incremental"=>false, "detach"=>false, "port"=>"8081", "host"=>"127.0.0.1", "baseurl"=>nil, "show_dir_listing"=>false, "permalink"=>"date", "paginate_path"=>"page:num", "timezone"=>nil, "quiet"=>false, "verbose"=>false, "defaults"=>[], "liquid"=>{"error_mode"=>"warn", "strict_filters"=>false, "strict_variables"=>false}, "kramdown"=>{"auto_ids"=>true, "toc_levels"=>[1, 2, 3, 4, 5, 6], "entity_output"=>"as_char", "smart_quotes"=>"lsquo,rsquo,ldquo,rdquo", "input"=>"GFM", "hard_wrap"=>false, "guess_lang"=>true, "footnote_nr"=>1, "show_warnings"=>false, "enable_coderay"=>true, "syntax_highlighter"=>"rouge", "syntax_highlighter_opts"=>{:default_lang=>"plaintext", :guess_lang=>true}, "coderay"=>{}}, "title"=>"矫宗本的博客", "subtitle"=>"千里之行，始于足下。", "name"=>"矫宗本的博客", "email"=>"jiaozongben@gmail.com", "description"=>"本站是矫宗本的技术分享博客。", "keywords"=>"Geek", "favicon"=>"favicon.ico", "repository"=>"jiaozongben/jiaozongben.github.io", "github_url"=>"https://github.com/jiaozongben", "url"=>"http://localhost:8081", "enforce_ssl"=>"jiaozongben.github.io", "syntax_highlighter_opts"=>{"coderay_line_numbers"=>"nil"}, "paginate"=>12, "menus"=>[{"href"=>"/", "label"=>"Home"}, {"href"=>"/archives.html", "label"=>"Archives", "target"=>"_self"}, {"href"=>"/about.html", "label"=>"About", "target"=>"_self"}], "navs"=>[{"href"=>"/", "label"=>"Home"}, {"href"=>"/archives.html", "label"=>"Archives", "target"=>"_self"}, {"href"=>"/about.html", "label"=>"About", "target"=>"_self"}], "subscribe_rss"=>"/feed.xml", "side_bar_repo_limit"=>3, "skill_software_keywords"=>[], "skill_web_keywords"=>[], "livereload_port"=>35729, "serving"=>true, "watch"=>true, "github"=>{
   "api_url": "https://api.github.com",
   "archived": false,
   "baseurl": "/pages/jiaozongben/jiaozongben.github.io",
-  "build_revision": "dc1de8e0a0b829398a892ec407ed2083f6b06245",
+  "build_revision": "4648b9e4b652c0214c92f55039196be8f531c472",
   "clone_url": "https://github.com/jiaozongben/jiaozongben.github.io.git",
   "contributors": [
     {
@@ -24,7 +24,7 @@
       "received_events_url": "https://api.github.com/users/jiaozongben/received_events",
       "type": "User",
       "site_admin": false,
-      "contributions": 38
+      "contributions": 39
     }
   ],
   "disabled": false,
@@ -34,7 +34,7 @@
   "is_project_page": true,
   "is_user_page": false,
   "issues_url": "https://github.com/jiaozongben/jiaozongben.github.io/issues",
-  "language": "CSS",
+  "language": "HTML",
   "latest_release": false,
   "license": {
     "key": "apache-2.0",
@@ -68,7 +68,7 @@
     "public_gists": 1,
     "public_repos": 86,
     "type": "User",
-    "updated_at": "2020-06-14 22:36:12 UTC"
+    "updated_at": "2020-07-11 05:41:50 UTC"
   },
   "owner_gravatar_url": "https://github.com/jiaozongben.png",
   "owner_name": "jiaozongben",
@@ -4340,17 +4340,17 @@
       "releases_url": "https://api.github.com/repos/jiaozongben/jiaozongben.github.io/releases{/id}",
       "deployments_url": "https://api.github.com/repos/jiaozongben/jiaozongben.github.io/deployments",
       "created_at": "2019-10-09 06:40:44 UTC",
-      "updated_at": "2019-11-29 09:53:26 UTC",
-      "pushed_at": "2019-12-20 06:20:56 UTC",
+      "updated_at": "2020-07-11 05:34:12 UTC",
+      "pushed_at": "2020-07-11 05:34:40 UTC",
       "git_url": "git://github.com/jiaozongben/jiaozongben.github.io.git",
       "ssh_url": "git@github.com:jiaozongben/jiaozongben.github.io.git",
       "clone_url": "https://github.com/jiaozongben/jiaozongben.github.io.git",
       "svn_url": "https://github.com/jiaozongben/jiaozongben.github.io",
       "homepage": null,
-      "size": 241218,
+      "size": 241257,
       "stargazers_count": 0,
       "watchers_count": 0,
-      "language": "CSS",
+      "language": "HTML",
       "has_issues": true,
       "has_projects": true,
       "has_downloads": true,
@@ -4360,7 +4360,7 @@
       "mirror_url": null,
       "archived": false,
       "disabled": false,
-      "open_issues_count": 1,
+      "open_issues_count": 0,
       "license": {
         "key": "apache-2.0",
         "name": "Apache License 2.0",
@@ -4372,7 +4372,7 @@
 
       ],
       "forks": 0,
-      "open_issues": 1,
+      "open_issues": 0,
       "watchers": 0,
       "default_branch": "master"
     },

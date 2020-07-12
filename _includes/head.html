@@ -5,8 +5,10 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
 
-    <title>{% if page.titlebar %} {{ page.titlebar | escape }} - 矫宗本的博客 {% elsif page.title %} {{ page.title | escape }} - 矫宗本的博客 {% else %}{{ site.title | escape }}{% endif %}</title>
-    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
+    <title>{% if page.titlebar %} {{ page.titlebar | escape }} - 矫宗本的博客 {% elsif page.title %} {{ page.title | escape }}
+        - 矫宗本的博客 {% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="keywords"
+          content="{% if page.keywords %}{{ page.keywords | escape }}{% else %}{{ site.keywords }}{% endif %}">
     <meta name="description"
           content="{% if page.excerpt %}{{ page.excerpt | escape }}{% else %}{{ site.description }}{% endif %}">
 
@@ -21,7 +23,6 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="/assets/css/gitalk.css">
 
-    
 
     <!-- My CSS -->
     <link rel="stylesheet" href="/assets/css/common.css">
@@ -36,7 +37,8 @@
     <link rel="stylesheet" href="/assets/css/{{css}}">
     {% endfor %}
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

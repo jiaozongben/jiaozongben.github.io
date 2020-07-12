@@ -19,9 +19,9 @@ repository: jiaozongben/jiaozongben.github.io
 github_url: https://github.com/jiaozongben
 url: http://jiaozongben.github.io/
 enforce_ssl: jiaozongben.github.io
+github: [metadata]
 
-
-
+#github: [3a84dcc736be38bf050fdaaed57dfa3a94427761]
 ## Gem
 plugins:
   - jekyll-paginate
@@ -55,21 +55,21 @@ paginate: 12
 paginate_path: 'page:num'
 
 # Navigation. top menu list
-menus:
-
-  -
-    href: /
-    label: Home
-
-  -
-    href: /archives.html
-    label: Archives
-    target: _self
-
-  -
-    href: /about.html
-    label: About
-    target: _self
+#menus:
+#
+#  -
+#    href: /
+#    label: Home
+#
+#  -
+#    href: /archives.html
+#    label: Archives
+#    target: _self
+#
+#  -
+#    href: /about.html
+#    label: About
+#    target: _self
  
 
 

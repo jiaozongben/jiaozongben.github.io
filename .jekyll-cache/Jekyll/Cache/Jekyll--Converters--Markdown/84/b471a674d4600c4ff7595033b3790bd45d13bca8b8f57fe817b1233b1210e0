@@ -1,0 +1,53 @@
+I"b<h2 id="设计一个高效交互的api">设计一个高效交互的api</h2>
+
+<h3 id="需求描述">需求描述</h3>
+
+<p>用户需求： 用户根据订单号查询订单信息。需service-A  根据订单号  调用 service-B 接口  下单&amp;返回订单详情</p>
+
+<p>机器环境： 4C8G</p>
+
+<p>模拟业务场景：</p>
+
+<ul>
+  <li>
+    <p>QPS（每秒查询率）: 300</p>
+  </li>
+  <li>假定每个订单对象大小：1kb</li>
+  <li>下单设计其他对象，放大20倍</li>
+  <li>下单涉及查询操作，再放大10倍</li>
+</ul>
+
+<p><img src="C:\Users\Administrator\Documents\james-xuande.github.io\assets\images\create-query-order-memery-flow.png.jpg" alt="" /></p>
+
+<h3 id="设计图">设计图</h3>
+
+<p>订单查询：</p>
+
+<p><img src="C:\Users\Administrator\Documents\james-xuande.github.io\assets\images\design-api-sequence.png.jpg" alt="" /></p>
+
+<p>创建订单：</p>
+
+<p>高效实践思路：</p>
+
+<h3 id="代码示例版本">代码示例版本</h3>
+
+<p>代码地址：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/james-xuande/spring-standard-code.git
+</code></pre></div></div>
+
+<p>其中：</p>
+
+<p>springboot : 2.2.6.RELEASE</p>
+
+<p>springcloud: Hoxton.SR9</p>
+
+<p>swagger: 2.9.2</p>
+
+<h3 id="设计原则">设计原则</h3>
+
+<ul>
+  <li>带swagger注释</li>
+</ul>
+
+:ET

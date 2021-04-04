@@ -1,14 +1,19 @@
-# 个人博客
+jekylly目录结构
 
-这是我的个人博客项目，里面会记录生活和技术的点点滴滴。
-
-
-访问地址：[http://www.ityouknow.com/](http://www.ityouknow.com/)
-
-
-博客主题使用:[Yummy-Jekyll](https://github.com/DONGChuan/Yummy-Jekyll)
-
-
-## 我的微信公众号
-
-![](http://www.ityouknow.com/assets/images/keeppuresmile_430.jpg)
+.
+├──_config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── _site
+├── .jekyll-metadata
+└── index.html

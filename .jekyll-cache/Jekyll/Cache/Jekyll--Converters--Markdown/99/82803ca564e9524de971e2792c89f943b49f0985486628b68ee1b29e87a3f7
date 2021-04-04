@@ -1,0 +1,30 @@
+I"�<h2 id="设计一个高效的api">设计一个高效的api</h2>
+
+<h3 id="需求描述">需求描述</h3>
+
+<p>用户根据订单号查询订单信息。</p>
+
+<p>需service-A  调用 service-B 接口</p>
+
+<h3 id="代码示例版本">代码示例版本</h3>
+
+<p>代码地址：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/james-xuande/spring-standard-code.git
+</code></pre></div></div>
+
+<p>其中：</p>
+
+<p>springboot : 2.2.6.RELEASE</p>
+
+<p>springcloud: Hoxton.SR9</p>
+
+<p>swagger: 2.9.2</p>
+
+<h3 id="设计原则">设计原则</h3>
+
+<ul>
+  <li>带swagger注释</li>
+</ul>
+
+:ET

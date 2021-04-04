@@ -1,0 +1,68 @@
+I"_<h2 id="结合业务场景设计一个订单查询的api分析排查创建订单接口问题的过程">结合业务场景设计一个订单查询的api&amp;分析排查创建订单接口问题的过程</h2>
+
+<h3 id="需求描述">需求描述</h3>
+
+<p>用户需求： 用户根据订单号查询订单信息。service-a调用service-b 下单或者，service-A  根据订单号  调用 service-B 接口 返回订单详情</p>
+
+<p>机器环境： 4C8G</p>
+
+<p>模拟业务场景,需考虑在保证应用正常支撑的前提下，gc正常，尽量不发生full gc或者jvm溢出：</p>
+
+<ul>
+  <li>
+    <p>每秒创建: 300单</p>
+  </li>
+  <li>假定每个订单对象大小：1kb（300x1=300kb）</li>
+  <li>下单涉及其他对象，放大20倍（300x1x20=6000kb）</li>
+  <li>下单涉及查询操作，再放大10倍(300x1x20x10=60000kb=60mb)/s</li>
+  <li>这里一般系统使用2G系统内存，留给app能有4G内存供app使用。一般来说eden：3.2G suivivor：400MB old:400mb 分配，cms-gc即可，初步判断不会内存溢出。</li>
+</ul>
+
+<h3 id="设计图">设计图</h3>
+
+<p><img src="C:\Users\Administrator\Documents\james-xuande.github.io\assets\images\design-api-sequence.png.jpg" alt="" /></p>
+
+<p>订单查询（通过nexus共享api jar，swagger-api编写文档字段校验，提升开发效率）：</p>
+
+<ul>
+  <li>FEIGN要考虑到性能问题，这里qps：500，从serviceB jmeter压力测试，feign 调用svc-a默认线程池只有10，如果超出线程会怎么办，查询报错了。</li>
+</ul>
+
+<p>​	<img src="C:\Users\Administrator\Documents\james-xuande.github.io\assets\images\feign-runningpool.png.jpg" alt="" /></p>
+
+<p>优化线程池：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hystrix:
+  threadpool:
+    default:
+      coreSize: 200 #并发执行的最大线程数，默认10
+      maxQueueSize: 1000 #BlockingQueue的最大队列数，默认值-1
+      queueSizeRejectionThreshold: 800 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝，默认值5
+</code></pre></div></div>
+
+<h3 id="设计原则">设计原则：</h3>
+
+<ul>
+  <li>高可用：下游系统处理失败500，是否重试，重试几次，交互异常是否捕获</li>
+  <li>高性能：上游系统feign 线程池是否优化，这里根据业务 调整为200，否则线程池熔断也会溢出</li>
+  <li>功能单一性： restful 资源/操作，查询、新增，合理的接口命名，明确接口支持的协议： get、post方法</li>
+  <li>可读性： swagger根据注解对于入参、返回参数 ，自动生成接口文档。接口入参、出参，日志打印</li>
+  <li>幂等：新增订单接口，如果订单存在，不新增</li>
+</ul>
+
+<h3 id="代码示例版本">代码示例版本</h3>
+
+<p>代码地址：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/james-xuande/spring-standard-code.git
+</code></pre></div></div>
+
+<p>其中：</p>
+
+<p>springboot : 2.2.6.RELEASE</p>
+
+<p>springcloud: Hoxton.SR9</p>
+
+<p>swagger: 2.9.2</p>
+
+:ET

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  api-test-design-model
+title:  接口测试-查询类用例设计基础(一)
 no-post-nav: false
 category: spring
 tags: [spring]

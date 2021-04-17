@@ -76,20 +76,20 @@ paginate_path: 'page:num'
 
 
 # Navigation. main menu list
-navs:
-
-  -
-    href: /
-    label: Home
-
-  -
-    href: /archives.html
-    label: springboot
-    target: _self
-
-  -
-    href: /api-test.html
-    label: 接口测试
+#navs:
+#
+#  -
+#    href: /
+#    label: Home
+#
+#  -
+#    href: /archives.html
+#    label: springboot
+#    target: _self
+#
+#  -
+#    href: /api-test.html
+#    label: 接口测试
 #    target: _self
 
 

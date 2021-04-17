@@ -6,7 +6,7 @@ title: James Bond
 <div id="home">
     <h1>研发效能</h1>
     <ul class="posts">
-        {% for post in site.posts %}
+        {% for post in site.posts reversed %}
         {% if  post.category == 'devops'  %}
 
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
@@ -16,7 +16,7 @@ title: James Bond
     </ul>
     <h1>Java-Spring</h1>
     <ul class="posts">
-        {% for post in site.posts %}
+        {% for post in site.posts reversed %}
         {% if  post.category == 'spring'  %}
 
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
@@ -26,7 +26,7 @@ title: James Bond
     </ul>
     <h1>接口测试-实践</h1>
     <ul class="posts">
-        {% for post in site.posts %}
+        {% for post in site.posts reversed %}
         {% if  post.category == 'api-test'  %}
 
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>

@@ -2,8 +2,8 @@
 layout: post
 title:  接口测试-查询类用例设计基础(一)
 no-post-nav: false
-category: spring
-tags: [spring]
+category: api-test
+tags: [api-test]
 excerpt: 接口测试
 ---
 

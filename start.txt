@@ -1,1 +1,4 @@
-bundle exec jekyll serve --port=8081  --trace
+bundle exec jekyll serve --port=8081   --incremental --trace
+
+git config --global http.proxy 127.0.0.1:4780
+git config --global https.proxy 127.0.0.1:4780

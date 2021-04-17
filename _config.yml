@@ -35,6 +35,7 @@ markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
+incremental: false
 
 source:      .
 destination: ./_site
@@ -83,13 +84,13 @@ navs:
 
   -
     href: /archives.html
-    label: Archives
+    label: springboot
     target: _self
 
   -
-    href: /about.html
-    label: About
-    target: _self
+    href: /api-test.html
+    label: 接口测试
+#    target: _self
 
 
 

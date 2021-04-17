@@ -1,0 +1,142 @@
+I"�<h2 id="接口测试-查询类用例设计基础">接口测试-查询类用例设计基础</h2>
+
+<h3 id="登录使用信息">登录使用信息</h3>
+
+<h4 id="登录">登录</h4>
+
+<p>云桌面内登录 接口测试平台，用户名密码同ldap 用户名密码</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://10.164.204.153:5000
+</code></pre></div></div>
+
+<h4 id="维护环境变量">维护环境变量</h4>
+
+<p>原则： 约定大于配置</p>
+
+<h5 id="应用数据库信息维护">应用、数据库信息维护</h5>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417171613857.png" alt="image-20210417171613857" /></p>
+
+<p>#####</p>
+
+<h3 id="api管理">Api管理</h3>
+
+<p>进入自己项目  Api信息管理-搜索要测试的api</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417122725350.png" alt="image-20210417122725350" /></p>
+
+<h4 id="接口文档">接口文档</h4>
+
+<p>​	Get接口：拿着活动码值查询接口活动详情（包含开始时间、结束时间、状态等详情信息）</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417123530339.png" alt="image-20210417123530339" /></p>
+
+<p>​</p>
+
+<h4 id="接口测试用例">接口测试用例</h4>
+
+<p>切换到测试用例页面，点击编辑开始编写测试用例，这里会把大家发布到测试环境 的接口自动生成测试用例代码（需接入Swagger标准化）</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417122841659.png" alt="image-20210417122841659" /></p>
+
+<h4 id="接口详细设计">接口详细设计</h4>
+
+<p>查询类接口测试用例详细设计</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417124612775.png" alt="image-20210417124612775" /></p>
+
+<h3 id="用例实现">用例实现</h3>
+
+<h4 id="动态查询动态查询数据库">动态查询(动态查询数据库)</h4>
+
+<h5 id="步骤一-测试数据准备">步骤一: 测试数据准备</h5>
+
+<p>​	请求数据中<strong>活动码如何从数据库动态查询</strong>，每次测试都是查询不同的活动码：</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417130429203.png" alt="image-20210417130429203" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>act_ct_sql=select count(1) as CT from F_MA_ACT_INFO 
+ct=${select_common($urm_db_url, $act_ct_sql, oracle, 0, CT)}
+row=${randomint($ct)}
+code_sql=select AT_CODE ,AT_START_DT, AT_STATUS from F_MA_ACT_INFO f
+actCode=${select_common($urm_db_url, $code_sql, oracle, $row, AT_CODE)}
+sql=select AT_START_DT,AT_END_DT,AT_STATUS from F_MA_ACT_INFO f where AT_CODE=$actCode
+</code></pre></div></div>
+
+<h5 id="步骤二-测试用例运行">步骤二: 测试用例运行</h5>
+
+<ul>
+  <li>这个时候我们点测试，请求结果，是能获取到对应动态活动码 请求接口了：</li>
+</ul>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417130835386.png" alt="image-20210417130835386" /></p>
+
+<ul>
+  <li>测试报告查看</li>
+</ul>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417131040325.png" alt="image-20210417131040325" /></p>
+
+<p>点击log，对于本次请求：</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417131409676.png" alt="image-20210417131409676" /></p>
+
+<h5 id="步骤三-用例双向校验">步骤三: 用例双向校验</h5>
+
+<ul>
+  <li>（返回报文&lt;–&gt;数据库）</li>
+</ul>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417160125614.png" alt="image-20210417160125614" /></p>
+
+<ul>
+  <li>这里在返回体提取出本次的返回体变量后，用于和数据库的值进行校验</li>
+</ul>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417131643311.png" alt="image-20210417131643311" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status_code==200 
+content.head.retFlag==00000
+content.head.retMsg==处理成功
+content.body.startDt==${select_common($urm_db_url, $sql, oracle, 0, AT_START_dt)}
+content.body.endDt==${select_common($urm_db_url, $sql, oracle, 0, AT_END_DT)}
+content.body.atStatus==${select_common($urm_db_url, $sql, oracle, 0, AT_STATUS)}
+</code></pre></div></div>
+
+<h4 id="前置后置">前置后置</h4>
+
+<h5 id="数据准备之前">数据准备之前</h5>
+
+<p>这里根据你的需求，有时候是<strong>准备数据之前</strong>要执行 setup操作</p>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417170616223.png" alt="image-20210417170616223" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sql="insert 一条你想要的数据"
+${select_common($urm_db_url, $sql, oracle)}
+</code></pre></div></div>
+
+<h5 id="接口调用之前">接口调用之前</h5>
+
+<p>这里根据你的需求，有时候是<strong>准备数据之后</strong>，再执行setup操作</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sql="insert 一条你想要的数据"
+${select_common($urm_db_url, $sql, oracle)}
+</code></pre></div></div>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417171103875.png" alt="image-20210417171103875" /></p>
+
+<h5 id="断言执行之后">断言执行之后</h5>
+
+<p>测试后置的执行顺序 在 <strong>断言校验之后</strong>，也就是说比对完结果， 就会清理数据库中本条无用数据。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sql="delete 一条你不想要的数据"
+${select_common($urm_db_url, $sql, oracle)}
+</code></pre></div></div>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210417170935361.png" alt="image-20210417170935361" /></p>
+
+<h3 id="持续集成">持续集成</h3>
+
+<p>当您写好一条用例的时候，可以联系我给您配置上自动测试脚本了，我们已经打通jenkins、钉钉，发布后钉钉就会收到自动测试的报告，持续拿到回归测试收益。</p>
+
+:ET

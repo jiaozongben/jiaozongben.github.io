@@ -47,6 +47,12 @@ kramdown:
   input: GFM
   enable_coderay: true
   syntax_highlighter: rouge
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  hard_wrap:      false
 
 syntax_highlighter_opts:
    coderay_line_numbers:  nil
@@ -121,3 +127,25 @@ skill_software_keywords: []
 skill_web_keywords: []
 
 
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+baseurl: "" # does not include hostname
+show_dir_listing: false
+
+liquid:
+  error_mode: warn
+
+
+# Markdown Processors
+rdiscount:
+  extensions: []
+
+
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE

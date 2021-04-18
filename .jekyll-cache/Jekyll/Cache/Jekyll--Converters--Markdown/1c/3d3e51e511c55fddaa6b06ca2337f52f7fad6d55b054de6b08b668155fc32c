@@ -1,0 +1,27 @@
+I"�<h2 id="接口测试-ci持续集成冒烟测试">接口测试-CI持续集成&amp;冒烟测试</h2>
+
+<p>对于开发人员来说，快速编写一个接口，在一瞬间完成对应的接口测试已经变成 家常便饭。</p>
+
+<h3 id="研发时序图">研发时序图</h3>
+
+<p>时序图是这样的： 按接口维度在保证新开发接口不影响存量功能的前提下，循环往复开发下一个接口，稳扎稳打，向前迈进</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\ci-smoke.png" alt="" /></p>
+
+<h3 id="接口需求描述">接口需求描述</h3>
+
+<p>接口测试平台本身也是python代码编写的，也需要开发和测试的，对于一个接口详情查询接口，我们要返回以下关键字段：</p>
+
+<p>需求描述，输入接口ID返回接口详情：</p>
+
+<p>请求参数描述：</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\api-requestid.png" alt="" /></p>
+
+<p>返回参数描述：</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\api-requestdata-responses.png" alt="" /></p>
+
+<h3 id="写接口新增修改">写接口（新增、修改）</h3>
+
+:ET

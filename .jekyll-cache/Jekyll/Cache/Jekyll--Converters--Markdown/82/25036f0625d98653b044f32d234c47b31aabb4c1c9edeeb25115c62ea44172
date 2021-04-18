@@ -1,0 +1,109 @@
+I"6<h2 id="接口测试-ci持续集成冒烟测试">接口测试-CI持续集成&amp;冒烟测试</h2>
+
+<p>对于开发人员来说，快速编写一个接口，在一瞬间完成对应的接口测试已经变成 家常便饭。</p>
+
+<h3 id="研发时序图">研发时序图</h3>
+
+<p>时序图是这样的： 按接口维度在保证新开发接口不影响存量功能的前提下，循环往复开发下一个接口，稳扎稳打，向前迈进</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\ci-smoke.png" alt="" /></p>
+
+<h3 id="接口需求描述">接口需求描述</h3>
+
+<p>接口测试平台本身也是python代码编写的，也需要开发和测试的，对于一个接口详情查询接口，我们要返回以下关键字段：</p>
+
+<p>需求描述，输入接口ID返回接口详情：</p>
+
+<p>请求参数描述：</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\api-requestid.png" alt="" /></p>
+
+<p>返回参数描述：</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\api-requestdata-responses.png" alt="" /></p>
+
+<h3 id="编写接口">编写接口</h3>
+
+<p>这里我用python 写了下返回报文</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\api-code.png" alt="" /></p>
+
+<h3 id="应用发布">应用发布</h3>
+
+<p>然后手动发布到对应测试机，编写用例调用接口查看</p>
+
+<p>这里你也可以使用jenkins发布</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\deploy-code.png" alt="" /></p>
+
+<h3 id="编写用例">编写用例</h3>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\case-validate.png" alt="" /></p>
+
+<p>这里看一下用例执行结果：</p>
+
+<p>我把返回报文贴在这里大家看得直观，可以看下对应的校验如何编写提取的：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "api_list": [
+    {
+      "body_type": "Json",
+      "data": "",
+      "defname": "lbscityUsingPOST($data)",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "id": 4489,
+      "json": "{\"applSeq\":\"$applSeq\",\"businessChannelNo\":\"$businessChannelNo\",\"channelNo\":\"$channelNo\",\"custNo\":\"$custNo\",\"days\":\"$days\",\"idCard\":\"$idCard\",\"interfaceCode\":\"$interfaceCode\",\"name\":\"$name\",\"phone\":\"$phone\"}",
+      "method": "POST",
+      "name": "lbscityUsingPOST",
+      "params": {},
+      "request_body": "",
+      "request_body_data": {
+        "applSeq": "string",
+        "businessChannelNo": "string",
+        "channelNo": "string",
+        "custNo": "string",
+        "days": "string",
+        "idCard": "string",
+        "interfaceCode": "string",
+        "name": "string",
+        "phone": "string"
+      },
+      "responses": {
+        "applSeq": "string",
+        "cityLBS": "string",
+        "interfaceCode": "string"
+      },
+      "status": "导入",
+      "summary": "LBS城市定位",
+      "tags": "变量平台内部模块",
+      "url": "/variableplaform/inner/api/LBScity"
+    }
+  ],
+  "msg": "",
+  "success": true
+}
+
+</code></pre></div></div>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\validate_report.png" alt="" /></p>
+
+<h3 id="冒烟测试">冒烟测试</h3>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\smoke-test.png" alt="" /></p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\jenkins-build.png" alt="" /></p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\jenkins_build_console.png" alt="" /></p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\build-all-repost.png" alt="" /></p>
+
+<h3 id="运营通知">运营通知</h3>
+
+<p>在这里钉钉也会受到对应一份 测试报告，报告链接可以云桌面访问查看。</p>
+
+<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\钉钉-report.jpg" alt="" /></p>
+
+<p>备注：在这里之后就可以联系我给您配置上持续集成的脚本，然后以后的Jenkins发布都会进行自动测试</p>
+:ET

@@ -98,6 +98,10 @@ sql=select AT_START_DT,AT_END_DT,AT_STATUS from F_MA_ACT_INFO f where AT_CODE=$a
 
 ##### 步骤三: 用例双向校验
 
+
+
+
+
 - （返回报文<-->数据库）
 
 ![image-20210417160125614](https://james-xuande.github.io/assets/images/image-20210417160125614.png)
@@ -107,6 +111,16 @@ sql=select AT_START_DT,AT_END_DT,AT_STATUS from F_MA_ACT_INFO f where AT_CODE=$a
 
 
 - 这里在返回体提取出本次的返回体变量后，用于和数据库的值进行校验
+
+  **equals: 完全等于**（通常使用明确的获取到对应的值可完全相等）
+
+  **contains:  包含** （通常使用与json或者list中不确定位置，只要存在于其中即可）
+
+  参数名：
+
+  - 如果是json 可以通过  content.key1.key2 来提取对应key值
+
+  - 如果是json list 可以通过  content.key1.0.key2 来提取对应游标为0的key值
 
 ![image-20210417131643311](https://james-xuande.github.io/assets/images/image-20210417131643311.png)
 

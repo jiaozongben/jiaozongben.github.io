@@ -36,7 +36,7 @@ compile("io.springfox:springfox-swagger2:2.6.1")
 compile("io.springfox:springfox-swagger-ui:2.6.1")
 ```
 
-![](https://james-xuande.github.io/assets/images/posts/2021-04-04/swagger-dependency.png)
+![](https://james-xuande.github.io/images/posts/2021-04-04/swagger-dependency.png)
 
 ### 注解开启swagger
 
@@ -46,7 +46,7 @@ app启动文件添加注解
 @EnableSwagger2
 ```
 
-![](https://james-xuande.github.io/assets/images/posts/2021-04-04/starter.png)
+![](https://james-xuande.github.io/images/posts/2021-04-04/starter.png)
 
 ### 选择暴露接口范围
 
@@ -94,7 +94,7 @@ public class SwaggerDocumentationConfig {
 }
 ```
 
-![](https://james-xuande.github.io/assets/images/posts/2021-04-04/expose-interface.png)
+![](https://james-xuande.github.io/images/posts/2021-04-04/expose-interface.png)
 
 ### swagger开关
 

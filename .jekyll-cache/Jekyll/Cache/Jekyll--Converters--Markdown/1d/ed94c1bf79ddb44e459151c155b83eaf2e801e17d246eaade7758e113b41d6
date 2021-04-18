@@ -1,4 +1,4 @@
-I"<h2 id="接口测试-自定义函数">接口测试-自定义函数</h2>
+I"<h2 id="接口测试-自定义函数">接口测试-自定义函数</h2>
 
 <h3 id="使用简介">使用简介：</h3>
 
@@ -16,11 +16,11 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>${function_name(key1,key2)}
 </code></pre></div></div>
 
-<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\image-function-use.png" alt="" /></p>
+<p><img src="https://james-xuande.github.io/images/posts/2021-04-18/image-function-use.png" alt="" /></p>
 
 <h3 id="维护自定义函数">维护自定义函数</h3>
 
-<p><img src="E:\gitlab\james-xuande.github.io\images\posts\2021-04-18\config-function.png" alt="" /></p>
+<p><img src="https://james-xuande.github.io/images/posts/2021-04-18/config-function.png" alt="" /></p>
 
 <h3 id="常用函数">常用函数</h3>
 

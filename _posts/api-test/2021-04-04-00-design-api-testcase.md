@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  接口测试-查询类用例设计基础(一)
+title:  接口测试-查询类用例编写
 no-post-nav: false
 category: api-test
 tags: [api-test]

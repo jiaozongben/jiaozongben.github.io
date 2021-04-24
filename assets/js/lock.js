@@ -69,7 +69,7 @@ var _unlock = function() {
 var _detect = function() {
 	console.log('Detecting Token', token);
 	$.ajax({
-		url : 'http://ityouknow.com/jfinal/wx/',
+		url : 'http://.com/jfinal/wx/',
 		method : 'GET',
 		data : {
 			token : token

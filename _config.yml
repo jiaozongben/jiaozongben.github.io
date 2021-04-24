@@ -6,19 +6,19 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title:  矫宗本的博客
+title:  矫宗本的技术博客
 subtitle: 千里之行，始于足下。
-name: 矫宗本的博客
+name: 矫宗本的技术博客
 email: jiaozongben@gmail.com
 description: 本站是矫宗本的技术分享博客。
 keywords: Geek
 encoding: "utf-8"
 favicon: favicon.png
 
-repository: jiaozongben/jiaozongben.github.io
-github_url: https://github.com/jiaozongben
-url: https://jiaozongben.github.io
-enforce_ssl: jiaozongben.github.io
+repository: james-xuande/james-xuande.github.io
+github_url: https://github.com/james-xuande
+url: https://james-xuande.github.io
+enforce_ssl: james-xuande.github.io
 github: [metadata]
 
 #github: [3a84dcc736be38bf050fdaaed57dfa3a94427761]
@@ -35,6 +35,7 @@ markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
+incremental: false
 
 source:      .
 destination: ./_site
@@ -46,6 +47,12 @@ kramdown:
   input: GFM
   enable_coderay: true
   syntax_highlighter: rouge
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  hard_wrap:      false
 
 syntax_highlighter_opts:
    coderay_line_numbers:  nil
@@ -75,21 +82,21 @@ paginate_path: 'page:num'
 
 
 # Navigation. main menu list
-navs:
-
-  -
-    href: /
-    label: Home
-
-  -
-    href: /archives.html
-    label: Archives
-    target: _self
-
-  -
-    href: /about.html
-    label: About
-    target: _self
+#navs:
+#
+#  -
+#    href: /
+#    label: Home
+#
+#  -
+#    href: /archives.html
+#    label: springboot
+#    target: _self
+#
+#  -
+#    href: /api-test.html
+#    label: 接口测试
+#    target: _self
 
 
 
@@ -120,3 +127,25 @@ skill_software_keywords: []
 skill_web_keywords: []
 
 
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+baseurl: "" # does not include hostname
+show_dir_listing: false
+
+liquid:
+  error_mode: warn
+
+
+# Markdown Processors
+rdiscount:
+  extensions: []
+
+
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
